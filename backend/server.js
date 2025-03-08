@@ -16,9 +16,14 @@ const mongoURI = process.env.MONGO_URI;
 
 // MongoDB connection
 mongoose
-  .connect(mongoURI)
+  .connect(mongoURI, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    serverSelectionTimeoutMS: 30000 // Increase timeout to 30 seconds
+  })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
+
 
 // User Schema
 const userSchema = new mongoose.Schema({
