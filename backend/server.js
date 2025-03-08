@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
+const port = 5000;
 
 // Middleware
 app.use(cors());
@@ -142,6 +143,6 @@ app.get("/", (req,res) => {
 })
 
 // Start server
-app.listen(() => {
-  console.log(`Server running`);
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
